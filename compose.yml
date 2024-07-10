@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/user/serc/app
+    environment:
+      NODE_ENV: development
+  test:
+    build: .
+    command: ["npm", "test"]
+    volumes:
+      - .:/usr/src/app
+    environment:
+      NODE_ENV: test
